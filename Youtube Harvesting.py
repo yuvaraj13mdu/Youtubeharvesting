@@ -4,7 +4,6 @@
 import googleapiclient.discovery
 import streamlit
 from googleapiclient.discovery import build
-Import HttpError
 from googleapiclient.errors import HttpError
 
 
@@ -15,6 +14,9 @@ import re
 
 # [MongoDB]
 import pymongo
+from pymongo.mongo_client import MongoClient
+from pymongo.server_api import ServerApi
+
 
 # [SQL libraries]
 import mysql.connector
@@ -29,7 +31,6 @@ import numpy as np
 # [Dash board libraries]
 import streamlit as st
 import plotly.express as px
-
 
 
 # ==============================================         /   /   DASHBOARD   /   /         ================================================== #
@@ -58,7 +59,7 @@ with col1:
     # Define Session state to Get data button
     if "Get_state" not in st.session_state:
         st.session_state.Get_state = False
-    if Get_data or st.session_state.Get_state:
+    if "Get_data" or st.session_state.Get_state:
         st.session_state.Get_state = True
     if 'value' not in st.session_state:
             st.session_state.value = None
@@ -67,6 +68,12 @@ with col1:
 
     if 'value' not in st.session_state:
         st.session_state.value = 0
+
+
+    def __getitem__(self, key):
+        if key not in self:
+            self[key] = {}
+
 
 
     def my_function():
@@ -293,7 +300,9 @@ with col1:
         # -----------------------------------    /   MongoDB connection and store the collected data   /    ---------------------------------- #
 
         # create a client instance of MongoDB
-        client = pymongo.MongoClient('mongodb://localhost:27017/')
+        uri = "mongodb+srv://Sakthivel13mdu:<password>@cluster0.de0orbj.mongodb.net/?retryWrites=true&w=majority"
+        # Create a new client and connect to the server
+        client = MongoClient(uri, server_api=ServerApi('1'))
 
         # create a database or use existing one
         mydb = client['Youtube_DB']
