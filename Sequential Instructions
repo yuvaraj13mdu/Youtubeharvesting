@@ -1,0 +1,30 @@
+
+**YouTube Harvesting Using Streamlit and MongoDB**
+
+- **Step 1: Set Up Your Development Environment:**
+  - Install Python.
+  - Install Streamlit and pymongo using pip.
+
+- **Step 2: Obtain YouTube API Key:**
+  - Visit the Google Developer Console to create a project and generate a YouTube Data API v3 key.
+
+- **Step 3: Create a Streamlit Application:**
+  - Create a Python script (e.g., `app.py`) for your Streamlit app.
+  - Initialize the YouTube Data API client with your API key.
+  - Initialize a connection to MongoDB.
+
+- **Step 4: Run Your Streamlit App:**
+  - Launch your Streamlit app using the `streamlit run` command.
+
+- **Step 5: Set Up MongoDB:**
+  - Ensure MongoDB is installed and running.
+  - Install the `pymongo` library if needed.
+
+- **Step 6: Store Data in MongoDB:**
+  - Fetch YouTube video data using the app.
+  - Store the data in a MongoDB collection.
+
+- **Step 7: Retrieve Data from MongoDB:**
+  - Query the MongoDB collection to retrieve and analyze the stored YouTube video data.
+
+This structured format makes it clear and easy to follow the explanation step by step. You can also use numbering instead of bullet points if you prefer a more sequential approach.
